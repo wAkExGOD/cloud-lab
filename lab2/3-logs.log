@@ -1,0 +1,47 @@
+WSL:
+
+vladp@wake:~/projects/bench$ ./build/mc-var --threads 1
+threads=1 paths=2000000 horizon=10 VaR99=82602.07 ES99=94235.77 parallel_ms=465.4 serial_ms=9.0 total_ms=474.4
+vladp@wake:~/projects/bench$ ./build/mc-var --threads 1
+threads=1 paths=2000000 horizon=10 VaR99=82602.07 ES99=94235.77 parallel_ms=472.2 serial_ms=9.2 total_ms=481.5
+vladp@wake:~/projects/bench$ ./build/mc-var --threads 1
+threads=1 paths=2000000 horizon=10 VaR99=82602.07 ES99=94235.77 parallel_ms=466.2 serial_ms=9.0 total_ms=475.2
+vladp@wake:~/projects/bench$ ./build/mc-var --threads 1
+threads=1 paths=2000000 horizon=10 VaR99=82602.07 ES99=94235.77 parallel_ms=467.9 serial_ms=9.1 total_ms=477.1
+vladp@wake:~/projects/bench$ ./build/mc-var --threads 1
+threads=1 paths=2000000 horizon=10 VaR99=82602.07 ES99=94235.77 parallel_ms=467.2 serial_ms=8.8 total_ms=476.0
+vladp@wake:~/projects/bench$ ./build/mc-var --threads 2
+threads=2 paths=2000000 horizon=10 VaR99=82602.07 ES99=94235.77 parallel_ms=238.2 serial_ms=9.2 total_ms=247.3
+vladp@wake:~/projects/bench$ ./build/mc-var --threads 2
+threads=2 paths=2000000 horizon=10 VaR99=82602.07 ES99=94235.77 parallel_ms=235.6 serial_ms=8.6 total_ms=244.2
+vladp@wake:~/projects/bench$ ./build/mc-var --threads 2
+threads=2 paths=2000000 horizon=10 VaR99=82602.07 ES99=94235.77 parallel_ms=234.4 serial_ms=8.7 total_ms=243.1
+vladp@wake:~/projects/bench$ ./build/mc-var --threads 2
+threads=2 paths=2000000 horizon=10 VaR99=82602.07 ES99=94235.77 parallel_ms=236.0 serial_ms=8.7 total_ms=244.6
+vladp@wake:~/projects/bench$ ./build/mc-var --threads 2
+threads=2 paths=2000000 horizon=10 VaR99=82602.07 ES99=94235.77 parallel_ms=233.8 serial_ms=8.8 total_ms=242.6
+
+
+
+VM:
+
+user@ubuntu-var07:~/bench$ ./build/mc-var --threads 1
+threads=1 paths=2000000 horizon=10 VaR99=82602.07 ES99=94235.77 parallel_ms=504.9 serial_ms=9.0 total_ms=513.9
+user@ubuntu-var07:~/bench$ ./build/mc-var --threads 1
+threads=1 paths=2000000 horizon=10 VaR99=82602.07 ES99=94235.77 parallel_ms=494.8 serial_ms=10.1 total_ms=504.9
+user@ubuntu-var07:~/bench$ ./build/mc-var --threads 1
+threads=1 paths=2000000 horizon=10 VaR99=82602.07 ES99=94235.77 parallel_ms=500.1 serial_ms=8.9 total_ms=509.0
+user@ubuntu-var07:~/bench$ ./build/mc-var --threads 1
+threads=1 paths=2000000 horizon=10 VaR99=82602.07 ES99=94235.77 parallel_ms=504.6 serial_ms=10.1 total_ms=514.8
+user@ubuntu-var07:~/bench$ ./build/mc-var --threads 1
+threads=1 paths=2000000 horizon=10 VaR99=82602.07 ES99=94235.77 parallel_ms=496.3 serial_ms=8.8 total_ms=505.1
+user@ubuntu-var07:~/bench$ ./build/mc-var --threads 2
+threads=2 paths=2000000 horizon=10 VaR99=82602.07 ES99=94235.77 parallel_ms=256.5 serial_ms=10.1 total_ms=266.6
+user@ubuntu-var07:~/bench$ ./build/mc-var --threads 2
+threads=2 paths=2000000 horizon=10 VaR99=82602.07 ES99=94235.77 parallel_ms=254.0 serial_ms=9.6 total_ms=263.6
+user@ubuntu-var07:~/bench$ ./build/mc-var --threads 2
+threads=2 paths=2000000 horizon=10 VaR99=82602.07 ES99=94235.77 parallel_ms=250.1 serial_ms=9.5 total_ms=259.7
+user@ubuntu-var07:~/bench$ ./build/mc-var --threads 2
+threads=2 paths=2000000 horizon=10 VaR99=82602.07 ES99=94235.77 parallel_ms=247.5 serial_ms=9.7 total_ms=257.2
+user@ubuntu-var07:~/bench$ ./build/mc-var --threads 2
+threads=2 paths=2000000 horizon=10 VaR99=82602.07 ES99=94235.77 parallel_ms=245.8 serial_ms=10.1 total_ms=256.0

@@ -1,0 +1,3 @@
+D:/Projects/bsu/cloud-lab/lab2/build/CMakeFiles/mc-var.dir
+D:/Projects/bsu/cloud-lab/lab2/build/CMakeFiles/edit_cache.dir
+D:/Projects/bsu/cloud-lab/lab2/build/CMakeFiles/rebuild_cache.dir

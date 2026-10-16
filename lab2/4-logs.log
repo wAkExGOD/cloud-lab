@@ -1,0 +1,63 @@
+(venv) PS D:\Projects\bsu\cloud-lab\lab2> aws --endpoint-url http://127.0.0.1:5001 ec2 describe-instance-types `  --instance-types t3.micro g5.xlarge p4d.24xlarge `  --query "InstanceTypes[]. [InstanceType,VCpuInfo.DefaultVCpus,MemoryInfo.SizeInMiB,GpuInfo.Gpus[0].Name,GpuInfo.Gpus[0].MemoryInfo.SizeInMiB]" `  --output table
+----------------------------------------------------
+|               DescribeInstanceTypes              |
++---------------+-----+----------+-------+---------+
+|  g5.xlarge    |  4  |  16384   |  A10G |  22888  |
+|  p4d.24xlarge |  96 |  1179648 |  A100 |  40960  |
+|  t3.micro     |  2  |  1024    |  None |  None   |
++---------------+-----+----------+-------+---------+
+
+
+
+(venv) PS D:\Projects\bsu\cloud-lab\lab2> aws --endpoint-url http://127.0.0.1:5001 ec2 stop-instances --instance-ids i-b406d7569704fb578
+{
+    "StoppingInstances": [
+        {
+            "InstanceId": "i-b406d7569704fb578",
+            "CurrentState": {
+                "Code": 64,
+                "Name": "stopping"
+            },
+            "PreviousState": {
+                "Code": 16,
+                "Name": "running"
+            }
+        }
+    ]
+}
+(venv) PS D:\Projects\bsu\cloud-lab\lab2> aws --endpoint-url http://127.0.0.1:5001 ec2 describe-instances --instance-ids i-b406d7569704fb578 --query "Reservations[].Instances[].State.Name"
+[
+    "stopped"
+]
+(venv) PS D:\Projects\bsu\cloud-lab\lab2> aws --endpoint-url http://127.0.0.1:5001 ec2 start-instances --instance-ids i-b406d7569704fb578
+{
+    "StartingInstances": [
+        {
+            "InstanceId": "i-b406d7569704fb578",
+            "CurrentState": {
+                "Code": 0,
+                "Name": "pending"
+            },
+            "PreviousState": {
+                "Code": 80,
+                "Name": "stopped"
+            }
+        }
+    ]
+}
+(venv) PS D:\Projects\bsu\cloud-lab\lab2> aws --endpoint-url http://127.0.0.1:5001 ec2 terminate-instances --instance-ids i-b406d7569704fb578
+{
+    "TerminatingInstances": [
+        {
+            "InstanceId": "i-b406d7569704fb578",
+            "CurrentState": {
+                "Code": 32,
+                "Name": "shutting-down"
+            },
+            "PreviousState": {
+                "Code": 16,
+                "Name": "running"
+            }
+        }
+    ]
+}
