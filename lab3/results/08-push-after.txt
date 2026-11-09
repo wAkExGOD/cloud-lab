@@ -1,0 +1,32 @@
+The push refers to repository [localhost:5000/quantflow/quant-cli]
+7a48b8f0e5c7: Waiting
+68879ee73b3d: Waiting
+44136fa355b3: Waiting
+856aa3043814: Waiting
+68879ee73b3d: Waiting
+44136fa355b3: Waiting
+856aa3043814: Waiting
+7a48b8f0e5c7: Waiting
+68879ee73b3d: Waiting
+44136fa355b3: Waiting
+856aa3043814: Waiting
+7a48b8f0e5c7: Waiting
+68879ee73b3d: Waiting
+44136fa355b3: Waiting
+856aa3043814: Waiting
+7a48b8f0e5c7: Waiting
+7a48b8f0e5c7: Waiting
+68879ee73b3d: Waiting
+44136fa355b3: Waiting
+856aa3043814: Waiting
+68879ee73b3d: Waiting
+44136fa355b3: Waiting
+856aa3043814: Waiting
+7a48b8f0e5c7: Waiting
+44136fa355b3: Already exists
+856aa3043814: Layer already exists
+7a48b8f0e5c7: Layer already exists
+b686043d70d9: Pushed
+4f4fb700ef54: Layer already exists
+68879ee73b3d: Pushed
+latest: digest: sha256:46af92db6153c9445d2b89edd5d15f9ef393b3bc6be7a602bb760f431bf1a699 size: 856

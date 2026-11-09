@@ -1,0 +1,79 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.multi
+#1 transferring dockerfile: 1.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:24.04
+#2 DONE 0.8s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 116B done
+#3 DONE 0.0s
+
+#4 [build 1/5] FROM docker.io/library/ubuntu:24.04@sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852
+#4 resolve docker.io/library/ubuntu:24.04@sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 4.24kB done
+#5 DONE 0.0s
+
+#6 [build 2/5] RUN apt-get update && apt-get install -y --no-install-recommends build-essential cmake     && rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [build 3/5] WORKDIR /src
+#7 CACHED
+
+#8 [build 4/5] COPY . .
+#8 DONE 0.0s
+
+#9 [build 5/5] RUN cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j     && ctest --test-dir build --output-on-failure
+#9 0.508 -- The CXX compiler identification is GNU 13.3.0
+#9 0.530 -- Detecting CXX compiler ABI info
+#9 0.639 -- Detecting CXX compiler ABI info - done
+#9 0.647 -- Check for working CXX compiler: /usr/bin/c++ - skipped
+#9 0.648 -- Detecting CXX compile features
+#9 0.649 -- Detecting CXX compile features - done
+#9 0.655 -- Configuring done (0.3s)
+#9 0.666 -- Generating done (0.0s)
+#9 0.668 -- Build files have been written to: /src/build
+#9 0.718 [ 37%] Building CXX object core/CMakeFiles/quant_core.dir/src/indicators.cpp.o
+#9 0.718 [ 37%] Building CXX object core/CMakeFiles/quant_core.dir/src/stats.cpp.o
+#9 0.718 [ 37%] Building CXX object core/CMakeFiles/quant_core.dir/src/tickgen.cpp.o
+#9 1.191 [ 50%] Linking CXX static library libquant_core.a
+#9 1.227 [ 50%] Built target quant_core
+#9 1.244 [ 75%] Building CXX object tests/CMakeFiles/test_core.dir/test_core.cpp.o
+#9 1.244 [ 75%] Building CXX object apps/quant-cli/CMakeFiles/quant-cli.dir/main.cpp.o
+#9 1.586 [ 87%] Linking CXX executable test_core
+#9 1.664 [ 87%] Built target test_core
+#9 1.849 [100%] Linking CXX executable quant-cli
+#9 1.915 [100%] Built target quant-cli
+#9 1.944 Internal ctest changing into directory: /src/build
+#9 1.944 Test project /src/build
+#9 1.946     Start 1: core_unit_tests
+#9 1.948 1/1 Test #1: core_unit_tests ..................   Passed    0.00 sec
+#9 1.949 
+#9 1.949 100% tests passed, 0 tests failed out of 1
+#9 1.949 
+#9 1.949 Total Test time (real) =   0.00 sec
+#9 DONE 2.0s
+
+#10 [runtime 2/4] RUN useradd --system --uid 10001 quant && mkdir /data && chown quant /data
+#10 CACHED
+
+#11 [runtime 3/4] COPY --from=build /src/build/apps/quant-cli/quant-cli /usr/local/bin/quant-cli
+#11 DONE 0.0s
+
+#12 [runtime 4/4] WORKDIR /data
+#12 DONE 0.1s
+
+#13 exporting to image
+#13 exporting layers 0.1s done
+#13 exporting manifest sha256:bfc7f40a303f3ac0d13b4b5ba2b4964ed295ca19b25804cb51b10d1bc1d68a28 0.0s done
+#13 exporting config sha256:1e60b4a15eefd9f51694dbbc9179a2a4847685ada453d70edf7bbb445a99e032 0.0s done
+#13 exporting attestation manifest sha256:42a4c25a89c19eb7f10dd76acae2a6d2f0f83f9e135a7ce3d444a57cb3788ded 0.0s done
+#13 exporting manifest list sha256:6d203cdbd3e26148f77b30b5136d177fd87202c9d3c2ea4e06825e6603b1dfb2 0.0s done
+#13 naming to docker.io/library/quant-cli:multi done
+#13 unpacking to docker.io/library/quant-cli:multi 0.0s done
+#13 DONE 0.2s

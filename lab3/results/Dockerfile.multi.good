@@ -1,0 +1,19 @@
+# Вариант 2: многоэтапная сборка — в итоговый образ попадает только исполняемый файл
+FROM ubuntu:24.04 AS build
+# Редко меняющийся шаг — первым: слой с компилятором берётся из кэша при каждой пересборке
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential cmake \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /src
+# Часто меняющиеся исходные тексты — после установки инструментов
+COPY . .
+RUN cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j \
+    && ctest --test-dir build --output-on-failure
+
+FROM ubuntu:24.04 AS runtime
+# Непривилегированный пользователь и каталог данных, принадлежащий ему
+RUN useradd --system --uid 10001 quant && mkdir /data && chown quant /data
+COPY --from=build /src/build/apps/quant-cli/quant-cli /usr/local/bin/quant-cli
+USER quant
+WORKDIR /data
+VOLUME /data
+ENTRYPOINT ["quant-cli"]

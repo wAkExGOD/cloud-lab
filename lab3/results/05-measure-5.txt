@@ -1,0 +1,22 @@
+variant     07
+symbol      GOLF
+ticks       1000
+first       102.46
+last        102.58
+mean        103.1116
+sma(12)     102.6083
+ema(16)     102.5932
+rsi(21)     48.5900
+volatility  0.000424
+max_dd      0.015490
+cli_exit=0
+memory_peak_bytes
+5644288
+memory_events
+low 0
+high 0
+max 0
+oom 0
+oom_kill 0
+oom_group_kill 0
+OOMKilled=false ExitCode=0

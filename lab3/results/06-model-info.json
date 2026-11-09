@@ -1,0 +1,1 @@
+{"model":"ewma-riskmetrics","version":"1.0.0","lambda":0.94,"warmup":20,"anomaly_threshold":3.0,"owner":"reference"}

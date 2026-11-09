@@ -1,0 +1,15 @@
+Name:      localhost:5000/quantflow/quant-cli:latest
+MediaType: application/vnd.oci.image.index.v1+json
+Digest:    sha256:33b0d4f3fdfae0aa6ae54c5cb4a7c26ab0246439954ff4391cf52c65cd2b8bae
+           
+Manifests: 
+  Name:        localhost:5000/quantflow/quant-cli:latest@sha256:9ec90516711c8683396f9a5e4a98454737c5de1dbfe61015da96d6ce7f896531
+  MediaType:   application/vnd.oci.image.manifest.v1+json
+  Platform:    linux/amd64
+               
+  Name:        localhost:5000/quantflow/quant-cli:latest@sha256:0eb12970254500e6a1a0123c2080c1b3b54e7f08efe0b8a2d8fc32e140ce1ec6
+  MediaType:   application/vnd.oci.image.manifest.v1+json
+  Platform:    unknown/unknown
+  Annotations: 
+    vnd.docker.reference.digest: sha256:9ec90516711c8683396f9a5e4a98454737c5de1dbfe61015da96d6ce7f896531
+    vnd.docker.reference.type:   attestation-manifest

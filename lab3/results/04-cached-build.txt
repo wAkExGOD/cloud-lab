@@ -1,0 +1,58 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.multi
+#1 transferring dockerfile: 1.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:24.04
+#2 ...
+
+#3 [auth] library/ubuntu:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:24.04
+#2 DONE 1.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 116B done
+#4 DONE 0.0s
+
+#5 [build 1/5] FROM docker.io/library/ubuntu:24.04@sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852
+#5 resolve docker.io/library/ubuntu:24.04@sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 1.23kB done
+#6 DONE 0.0s
+
+#7 [build 2/5] RUN apt-get update && apt-get install -y --no-install-recommends build-essential cmake     && rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [build 3/5] WORKDIR /src
+#8 CACHED
+
+#9 [build 4/5] COPY . .
+#9 CACHED
+
+#10 [runtime 2/4] RUN useradd --system --uid 10001 quant && mkdir /data && chown quant /data
+#10 CACHED
+
+#11 [build 5/5] RUN cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j     && ctest --test-dir build --output-on-failure
+#11 CACHED
+
+#12 [runtime 3/4] COPY --from=build /src/build/apps/quant-cli/quant-cli /usr/local/bin/quant-cli
+#12 CACHED
+
+#13 [runtime 4/4] WORKDIR /data
+#13 CACHED
+
+#14 exporting to image
+#14 exporting layers done
+#14 exporting manifest sha256:95f8100a56ca04ce6eae079f6efc2c3e4717563f72db3c0c5181070130a1d09b done
+#14 exporting config sha256:03a33b592eff88b1da6e895b5c0774256ee6c737eb12f19fadc3cecd29f2e4bb done
+#14 exporting attestation manifest sha256:fc0b86f9411d71cc123a70dacc1832485f7cc9ce87c68c2fe39c8b17e9146ce8 0.0s done
+#14 exporting manifest list sha256:9b3cd2af72d1036670b680fd6d7e74ae00ab5dafabe1bf8d43bb7a532bd2ab65
+#14 exporting manifest list sha256:9b3cd2af72d1036670b680fd6d7e74ae00ab5dafabe1bf8d43bb7a532bd2ab65 0.0s done
+#14 naming to docker.io/library/quant-cli:multi done
+#14 unpacking to docker.io/library/quant-cli:multi done
+#14 DONE 0.1s

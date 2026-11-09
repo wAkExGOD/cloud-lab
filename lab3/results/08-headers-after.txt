@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+Content-Length: 856
+Content-Type: application/vnd.oci.image.index.v1+json
+Docker-Content-Digest: sha256:46af92db6153c9445d2b89edd5d15f9ef393b3bc6be7a602bb760f431bf1a699
+Docker-Distribution-Api-Version: registry/2.0
+Etag: "sha256:46af92db6153c9445d2b89edd5d15f9ef393b3bc6be7a602bb760f431bf1a699"
+X-Content-Type-Options: nosniff
+Date: Mon, 09 Nov 2026 21:05:15 GMT
+

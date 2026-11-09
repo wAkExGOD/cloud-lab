@@ -1,0 +1,91 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.multi
+#1 transferring dockerfile: 1.52kB done
+#1 DONE 0.0s
+
+#2 [auth] library/ubuntu:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:24.04
+#3 DONE 1.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 116B done
+#4 DONE 0.0s
+
+#5 [build 1/5] FROM docker.io/library/ubuntu:24.04@sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852
+#5 resolve docker.io/library/ubuntu:24.04@sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 4.89kB done
+#6 DONE 0.0s
+
+#7 [build 2/5] RUN apt-get update && apt-get install -y --no-install-recommends build-essential cmake     && rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [build 3/5] WORKDIR /src
+#8 CACHED
+
+#9 [build 4/5] COPY . .
+#9 DONE 0.0s
+
+#10 [build 5/5] RUN cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DQUANT_BUILD_TESTS=ON     && cmake --build build -j     && ctest --test-dir build --output-on-failure --no-tests=error
+#10 0.531 -- The CXX compiler identification is GNU 13.3.0
+#10 0.551 -- Detecting CXX compiler ABI info
+#10 0.643 -- Detecting CXX compiler ABI info - done
+#10 0.651 -- Check for working CXX compiler: /usr/bin/c++ - skipped
+#10 0.652 -- Detecting CXX compile features
+#10 0.652 -- Detecting CXX compile features - done
+#10 0.657 -- Configuring done (0.3s)
+#10 0.666 -- Generating done (0.0s)
+#10 0.668 -- Build files have been written to: /src/build
+#10 0.707 [ 12%] Building CXX object core/CMakeFiles/quant_core.dir/src/stats.cpp.o
+#10 0.707 [ 25%] Building CXX object core/CMakeFiles/quant_core.dir/src/indicators.cpp.o
+#10 0.708 [ 37%] Building CXX object core/CMakeFiles/quant_core.dir/src/tickgen.cpp.o
+#10 1.135 [ 50%] Linking CXX static library libquant_core.a
+#10 1.165 [ 50%] Built target quant_core
+#10 1.181 [ 62%] Building CXX object apps/quant-cli/CMakeFiles/quant-cli.dir/main.cpp.o
+#10 1.183 [ 75%] Building CXX object tests/CMakeFiles/test_core.dir/test_core.cpp.o
+#10 1.555 [ 87%] Linking CXX executable test_core
+#10 1.624 [ 87%] Built target test_core
+#10 1.763 [100%] Linking CXX executable quant-cli
+#10 1.824 [100%] Built target quant-cli
+#10 1.864 Internal ctest changing into directory: /src/build
+#10 1.864 Test project /src/build
+#10 1.866     Start 1: core_unit_tests
+#10 1.868 1/1 Test #1: core_unit_tests ..................***Failed    0.00 sec
+#10 1.868 FAIL /src/tests/test_core.cpp:63  ratio = 2.1213203436, ожидалось 0.0000000000
+#10 1.868 
+#10 1.869 
+#10 1.869 0% tests passed, 1 tests failed out of 1
+#10 1.869 
+#10 1.869 Total Test time (real) =   0.00 sec
+#10 1.869 
+#10 1.869 The following tests FAILED:
+#10 1.869 	  1 - core_unit_tests (Failed)
+#10 1.869 Errors while running CTest
+#10 ERROR: process "/bin/sh -c cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DQUANT_BUILD_TESTS=ON     && cmake --build build -j     && ctest --test-dir build --output-on-failure --no-tests=error" did not complete successfully: exit code: 8
+------
+ > [build 5/5] RUN cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DQUANT_BUILD_TESTS=ON     && cmake --build build -j     && ctest --test-dir build --output-on-failure --no-tests=error:
+1.868 FAIL /src/tests/test_core.cpp:63  ratio = 2.1213203436, ожидалось 0.0000000000
+1.868 
+1.869 
+1.869 0% tests passed, 1 tests failed out of 1
+1.869 
+1.869 Total Test time (real) =   0.00 sec
+1.869 
+1.869 The following tests FAILED:
+1.869 	  1 - core_unit_tests (Failed)
+1.869 Errors while running CTest
+------
+Dockerfile.multi:12
+--------------------
+  11 |     #     && ctest --test-dir build --output-on-failure
+  12 | >>> RUN cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DQUANT_BUILD_TESTS=ON \
+  13 | >>>     && cmake --build build -j \
+  14 | >>>     && ctest --test-dir build --output-on-failure --no-tests=error
+  15 |     
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DQUANT_BUILD_TESTS=ON     && cmake --build build -j     && ctest --test-dir build --output-on-failure --no-tests=error" did not complete successfully: exit code: 8

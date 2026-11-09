@@ -1,0 +1,52 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.multi
+#1 transferring dockerfile: 1.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:24.04
+#2 DONE 0.8s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 116B done
+#3 DONE 0.0s
+
+#4 [build 1/5] FROM docker.io/library/ubuntu:24.04@sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852
+#4 resolve docker.io/library/ubuntu:24.04@sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852 0.0s done
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 1.23kB done
+#5 DONE 0.0s
+
+#6 [build 4/5] COPY . .
+#6 CACHED
+
+#7 [build 2/5] RUN apt-get update && apt-get install -y --no-install-recommends build-essential cmake     && rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [build 3/5] WORKDIR /src
+#8 CACHED
+
+#9 [build 5/5] RUN cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j     && ctest --test-dir build --output-on-failure
+#9 CACHED
+
+#10 [runtime 2/4] RUN useradd --system --uid 10001 quant && mkdir /data && chown quant /data
+#10 0.171 useradd warning: quant's uid 10001 is greater than SYS_UID_MAX 999
+#10 DONE 0.4s
+
+#11 [runtime 3/4] COPY --from=build /src/build/apps/quant-cli/quant-cli /usr/local/bin/quant-cli
+#11 DONE 0.0s
+
+#12 [runtime 4/4] WORKDIR /data
+#12 DONE 0.0s
+
+#13 exporting to image
+#13 exporting layers 0.1s done
+#13 exporting manifest sha256:95f8100a56ca04ce6eae079f6efc2c3e4717563f72db3c0c5181070130a1d09b 0.0s done
+#13 exporting config sha256:03a33b592eff88b1da6e895b5c0774256ee6c737eb12f19fadc3cecd29f2e4bb 0.0s done
+#13 exporting attestation manifest sha256:9151e2181b54eeacab704ce5447f5a446235391c10d90dd95ba9d36a4e03d153 0.0s done
+#13 exporting manifest list sha256:c19a9e6910c0741ead3030e5a27645b1595ef35d0224187525997e50a4a3b452 0.0s done
+#13 naming to docker.io/library/quant-cli:multi done
+#13 unpacking to docker.io/library/quant-cli:multi 0.1s done
+#13 DONE 0.2s

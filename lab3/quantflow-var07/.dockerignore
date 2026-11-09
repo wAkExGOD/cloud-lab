@@ -1,0 +1,12 @@
+.git
+.aws
+.env
+.env.*
+build
+build-*
+out
+__pycache__
+*.pyc
+*.log
+*.tar
+*.bak

@@ -1,0 +1,12 @@
+IMAGE                                                                     CREATED          CREATED BY                                                                                          SIZE      COMMENT
+sha256:c19a9e6910c0741ead3030e5a27645b1595ef35d0224187525997e50a4a3b452   24 minutes ago   ENTRYPOINT ["quant-cli"]                                                                            0B        buildkit.dockerfile.v0
+<missing>                                                                 24 minutes ago   VOLUME [/data]                                                                                      0B        buildkit.dockerfile.v0
+<missing>                                                                 24 minutes ago   WORKDIR /data                                                                                       4.1kB     buildkit.dockerfile.v0
+<missing>                                                                 24 minutes ago   USER quant                                                                                          0B        buildkit.dockerfile.v0
+<missing>                                                                 24 minutes ago   COPY /src/build/apps/quant-cli/quant-cli /usr/local/bin/quant-cli # buildkit                        65.5kB    buildkit.dockerfile.v0
+<missing>                                                                 24 minutes ago   RUN /bin/sh -c useradd --system --uid 10001 quant && mkdir /data && chown quant /data # buildkit    45.1kB    buildkit.dockerfile.v0
+<missing>                                                                 2 weeks ago      /bin/sh -c #(nop)  CMD ["/bin/bash"]                                                                0B        
+<missing>                                                                 2 weeks ago      /bin/sh -c #(nop) ADD file:eed88e94d6aa7c9da62836e137f889e03988c1a6b237b0cedb6ca666dfaa98ea in /    87.6MB    
+<missing>                                                                 2 weeks ago      /bin/sh -c #(nop)  LABEL org.opencontainers.image.version=24.04                                     0B        
+<missing>                                                                 2 weeks ago      /bin/sh -c #(nop)  ARG LAUNCHPAD_BUILD_ARCH                                                         0B        
+<missing>                                                                 2 weeks ago      /bin/sh -c #(nop)  ARG RELEASE                                                                      0B        

@@ -1,0 +1,12 @@
+# Вариант 3: статическая компоновка и минимальный образ без оболочки и пакетного менеджера
+FROM ubuntu:24.04 AS build
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential cmake \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /src
+COPY . .
+RUN cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXE_LINKER_FLAGS="-static" \
+    && cmake --build build -j && ctest --test-dir build --output-on-failure
+
+FROM gcr.io/distroless/static-debian12:nonroot
+COPY --from=build /src/build/apps/quant-cli/quant-cli /quant-cli
+ENTRYPOINT ["/quant-cli"]
